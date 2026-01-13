@@ -20,19 +20,19 @@
 
 .brandIcon {
   margin-right: var(--spacing-sm);
-  font-size: var(--font-size-title);
+  font-size: var(--font-size-xl);
 }
 
 .title {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-title);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
 .subtitle {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
   color: var(--color-text-secondary);
 }
@@ -67,12 +67,12 @@
 }
 
 .sectionTitle {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
 .sectionDescription {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }

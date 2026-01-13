@@ -14,13 +14,13 @@
 }
 
 .title {
-  font-size: var(--font-size-title);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
 .subtitle {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
 }
 
@@ -39,13 +39,13 @@
 }
 
 .summaryLabel {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
 }
 
 .summaryValue {
-  font-size: var(--font-size-xlarge);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
@@ -79,7 +79,7 @@
 
 .stateMessage {
   text-align: center;
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }
 
@@ -120,7 +120,7 @@
 }
 
 .productName {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin: 0;
@@ -128,7 +128,7 @@
 }
 
 .purchaseDate {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin: 0;
   white-space: nowrap;
@@ -147,12 +147,12 @@
 }
 
 .infoLabel {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
 }
 
 .infoValue {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
 }
@@ -167,13 +167,13 @@
 }
 
 .totalLabel {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
 }
 
 .totalValue {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
 }

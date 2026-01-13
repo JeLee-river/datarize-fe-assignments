@@ -12,7 +12,7 @@
 }
 
 .dateFilterLabel {
-  font-size: var(--font-size-subtitle);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   display: flex;
@@ -21,7 +21,7 @@
 
 .dateFilterInput {
   padding: 8px 12px;
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-sm);
   border: 1px solid var(--color-border-dark);
   border-radius: 8px;
   background-color: var(--color-input-background);

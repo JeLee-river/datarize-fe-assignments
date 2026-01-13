@@ -10,13 +10,11 @@
   --color-hover: #f9fafb;
   --color-error: #e53e3e;
 
-  --font-size-xlarge: 32px;
-  --font-size-title: 24px;
-  --font-size-large: 20px;
-  --font-size-subtitle: 16px;
-  --font-size-medium: 15px;
-  --font-size-body: 12px;
-  --font-size-small: 8px;
+  --font-size-xs: 12px;
+  --font-size-sm: 16px;
+  --font-size-md: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 28px;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;
