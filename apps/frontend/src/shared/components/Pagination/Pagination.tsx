@@ -26,7 +26,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage <= 1}
         >
-          ‹ 이전
+          <img src="/chevron-left.svg" alt="" className={styles.changePageIcon} />
+          이전
         </button>
         <div className={styles.pageNumbers}>
           {pageNumbers.map((pageNumber) => (
@@ -46,7 +47,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage >= totalPages || totalPages === 0}
         >
-          다음 ›
+          다음
+          <img src="/chevron-right.svg" alt="" className={styles.changePageIcon} />
         </button>
       </div>
     </div>

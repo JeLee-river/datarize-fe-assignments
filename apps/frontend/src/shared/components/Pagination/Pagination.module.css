@@ -12,10 +12,20 @@
 }
 
 .pageButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   background: none;
   border: none;
+}
+
+.changePageIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .pageButton:disabled {
@@ -42,9 +52,10 @@
 .pageNumberActive {
   min-width: 32px;
   padding: 6px 10px;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   font-size: var(--font-size-sm);
-  color: var(--color-text-primary);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
   background-color: var(--color-surface);
 }
