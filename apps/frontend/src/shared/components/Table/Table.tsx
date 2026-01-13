@@ -14,9 +14,15 @@ const alignClassMap: Record<Align, string | undefined> = {
   right: styles.alignRight,
 };
 
+type ClassNameParams = string | undefined | false;
+
+const convertClassString = (...classNames: ClassNameParams[]) => {
+  return classNames.filter(Boolean).join(' ');
+};
+
 const TableContainer = ({ className, children, ...props }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={`${styles.container} ${className ?? ''}`} {...props}>
+    <div className={convertClassString(styles.container, className)} {...props}>
       {children}
     </div>
   );
@@ -24,7 +30,7 @@ const TableContainer = ({ className, children, ...props }: HTMLAttributes<HTMLDi
 
 const TableRoot = ({ className, children, ...props }: TableHTMLAttributes<HTMLTableElement>) => {
   return (
-    <table className={`${styles.table} ${className ?? ''}`} {...props}>
+    <table className={convertClassString(styles.table, className)} {...props}>
       {children}
     </table>
   );
@@ -45,7 +51,7 @@ interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
 const TableRow = ({ className, onRowClick, children, ...props }: TableRowProps) => {
   return (
     <tr
-      className={`${styles.row} ${onRowClick ? styles.rowClickable : ''} ${className ?? ''}`}
+      className={convertClassString(styles.row, onRowClick && styles.rowClickable, className)}
       onClick={onRowClick}
       {...props}
     >
@@ -66,7 +72,7 @@ const TableHeaderCell = ({
 }: TableHeaderCellProps) => {
   const alignClass = alignClassMap[align];
   return (
-    <th className={`${styles.headerCell} ${alignClass ?? ''} ${className ?? ''}`} {...props}>
+    <th className={convertClassString(styles.headerCell, alignClass, className)} {...props}>
       {children}
     </th>
   );
@@ -79,7 +85,7 @@ interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 const TableCell = ({ align = 'left', className, children, ...props }: TableCellProps) => {
   const alignClass = alignClassMap[align];
   return (
-    <td className={`${styles.cell} ${alignClass ?? ''} ${className ?? ''}`} {...props}>
+    <td className={convertClassString(styles.cell, alignClass, className)} {...props}>
       {children}
     </td>
   );
