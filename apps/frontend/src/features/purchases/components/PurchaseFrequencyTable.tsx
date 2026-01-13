@@ -1,6 +1,7 @@
 import type { PurchaseFrequency } from '@/api/purchases';
 import { calculatePercentage } from '@/shared/utils/format';
 import { formatPriceRangeLabel, parsePriceRange } from '@/features/purchases/utils/format';
+import Table from '@/shared/components/Table/Table';
 import styles from './PurchaseFrequencyTable.module.css';
 
 interface PurchaseFrequencyTableProps {
@@ -25,37 +26,37 @@ const PurchaseFrequencyTable = ({ data, isLoading, errorMessage }: PurchaseFrequ
     <div className={styles.container}>
       <h2 className={styles.title}>가격대별 구매 빈도</h2>
 
-      <div className={styles.tableWrapper}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th className={styles.tableHeader}>가격대</th>
-              <th className={styles.tableHeader}>구매 빈도 (건)</th>
-              <th className={styles.tableHeader}>비율 (%)</th>
-            </tr>
-          </thead>
-          <tbody>
+      <Table.Container>
+        <Table>
+          <Table.Head>
+            <Table.Row>
+              <Table.HeaderCell>가격대</Table.HeaderCell>
+              <Table.HeaderCell>구매 빈도 (건)</Table.HeaderCell>
+              <Table.HeaderCell align="right">비율 (%)</Table.HeaderCell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
             {data.map((item, index) => {
               const percentage = calculatePercentage(item.count, totalCount);
               const { min, max } = parsePriceRange(item.range);
               const priceRangeText = formatPriceRangeLabel(min, max);
 
               return (
-                <tr key={index} className={styles.tableRow}>
-                  <td className={styles.tableCell}>{priceRangeText}</td>
-                  <td className={styles.tableCell}>
+                <Table.Row key={index}>
+                  <Table.Cell>{priceRangeText}</Table.Cell>
+                  <Table.Cell>
                     <div className={styles.frequencyCell}>
                       <div className={styles.bar} />
                       <span className={styles.countText}>{item.count}</span>
                     </div>
-                  </td>
-                  <td className={styles.tableCellRight}>{percentage}</td>
-                </tr>
+                  </Table.Cell>
+                  <Table.Cell align="right">{percentage}</Table.Cell>
+                </Table.Row>
               );
             })}
-          </tbody>
-        </table>
-      </div>
+          </Table.Body>
+        </Table>
+      </Table.Container>
     </div>
   );
 };

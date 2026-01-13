@@ -1,6 +1,7 @@
 import type { KeyboardEvent } from 'react';
 import type { Customer } from '@/api/customers';
 import { formatPrice } from '@/shared/utils/format';
+import Table from '@/shared/components/Table/Table';
 import styles from './CustomerTable.module.css';
 
 interface CustomerTableProps {
@@ -19,55 +20,55 @@ const CustomerTable = ({ data, isLoading, errorMessage, onRowClick }: CustomerTa
   };
 
   return (
-    <div className={styles.tableWrapper}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th className={styles.tableHeader}>고객 ID</th>
-            <th className={styles.tableHeader}>이름</th>
-            <th className={styles.tableHeaderCenter}>총 구매 횟수 (회)</th>
-            <th className={styles.tableHeaderRight}>총 구매 금액 (원)</th>
-          </tr>
-        </thead>
-        <tbody>
+    <Table.Container className={styles.tableWrapper}>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.HeaderCell>고객 ID</Table.HeaderCell>
+            <Table.HeaderCell>이름</Table.HeaderCell>
+            <Table.HeaderCell align="center">총 구매 횟수 (회)</Table.HeaderCell>
+            <Table.HeaderCell align="right">총 구매 금액 (원)</Table.HeaderCell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
           {isLoading ? (
-            <tr>
+            <Table.Row>
               <td className={styles.stateCell} colSpan={4}>
                 데이터를 불러오는 중...
               </td>
-            </tr>
+            </Table.Row>
           ) : errorMessage ? (
-            <tr>
+            <Table.Row>
               <td className={`${styles.stateCell} ${styles.stateCellError}`} colSpan={4}>
                 {errorMessage}
               </td>
-            </tr>
+            </Table.Row>
           ) : data.length === 0 ? (
-            <tr>
+            <Table.Row>
               <td className={styles.stateCell} colSpan={4}>
                 표시할 고객 데이터가 없습니다.
               </td>
-            </tr>
+            </Table.Row>
           ) : (
             data.map((customer) => (
-              <tr
+              <Table.Row
                 key={customer.id}
-                className={`${styles.tableRow} ${styles.tableRowClickable}`}
+                isClickable
                 onClick={() => onRowClick?.(customer)}
                 onKeyDown={(event) => handleRowKeyDown(customer, event)}
                 tabIndex={0}
                 role="button"
               >
-                <td className={styles.tableCell}>{customer.id}</td>
-                <td className={styles.tableCell}>{customer.name}</td>
-                <td className={styles.tableCellCenter}>{customer.count}</td>
-                <td className={styles.tableCellRight}>{formatPrice(customer.totalAmount)}</td>
-              </tr>
+                <Table.Cell>{customer.id}</Table.Cell>
+                <Table.Cell>{customer.name}</Table.Cell>
+                <Table.Cell align="center">{customer.count}</Table.Cell>
+                <Table.Cell align="right">{formatPrice(customer.totalAmount)}</Table.Cell>
+              </Table.Row>
             ))
           )}
-        </tbody>
-      </table>
-    </div>
+        </Table.Body>
+      </Table>
+    </Table.Container>
   );
 };
 
