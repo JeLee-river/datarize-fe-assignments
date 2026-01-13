@@ -1,12 +1,12 @@
 import './App.css';
 import Dashboard from './pages/Dashboard';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Dashboard />
     </div>
   );
-}
+};
 
 export default App;
