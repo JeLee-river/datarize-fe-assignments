@@ -44,7 +44,9 @@ const CustomerDetailModal = ({
       <div className={styles.content}>
         <div className={styles.header}>
           <h2 className={styles.title}>{customer.name} - 구매 내역</h2>
-          <p className={styles.subtitle}>고객의 전체 구매 내역을 확인하실 수 있습니다.</p>
+          <p className={styles.subtitle}>
+            조회 기간: {formatPurchaseDate(startDate)} ~ {formatPurchaseDate(endDate)}
+          </p>
         </div>
 
         <div className={styles.summaryCard}>
@@ -91,8 +93,8 @@ const CustomerDetailModal = ({
                       <span className={styles.infoValue}>{purchase.quantity}개</span>
                     </div>
                     <div className={styles.totalRow}>
-                      <span className={styles.totalLabel}>총 금액</span>
-                      <span className={styles.totalValue}>
+                      <span className={styles.totalPriceLabel}>총 금액</span>
+                      <span className={styles.totalPriceValue}>
                         {formatPrice(purchase.price * purchase.quantity)}원
                       </span>
                     </div>
