@@ -1,4 +1,5 @@
-import { getPurchases, PurchaseResponse } from '@/api/purchases';
+import type { PurchaseResponse } from '@/api/purchases';
+import { getPurchases } from '@/api/purchases';
 import { useState } from 'react';
 
 interface UsePurchasesFetchParams {

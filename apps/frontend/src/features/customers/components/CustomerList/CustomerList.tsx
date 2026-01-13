@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import type { Customer } from '@/api/customers';
-import { useCustomersFetch } from '@/hooks/useCustomersFetch';
-import { usePagination } from '@/hooks/usePagination';
-import Pagination from '@/components/common/Pagination';
+import { useCustomersFetch } from '@/features/customers/hooks/useCustomersFetch';
+import { usePagination } from '@/shared/hooks/usePagination';
+import useModal from '@/shared/components/Modal/useModal';
+import CustomerDetailModal from '../CustomerDetails/CustomerDetailModal';
 import CustomerControls, { SortOption } from './CustomerControls';
+import Pagination from '@/shared/components/Pagination/Pagination';
 import CustomerTable from './CustomerTable';
 import styles from './CustomerList.module.css';
-import useModal from '@/components/common/Modal/useModal';
-import CustomerDetailModal from '../CustomerDetails/CustomerDetailModal';
 
 interface CustomerListProps {
   startDate: string;

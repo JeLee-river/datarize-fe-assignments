@@ -1,5 +1,6 @@
+import type { Customer, Pagination } from '@/api/customers';
+import { getCustomers } from '@/api/customers';
 import { useEffect, useState } from 'react';
-import { Customer, getCustomers, Pagination } from '@/api/customers';
 
 interface UseCustomersFetchParams {
   startDate: string;

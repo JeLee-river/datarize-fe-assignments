@@ -1,5 +1,6 @@
+import type { CustomerPurchase } from '@/api/customers';
+import { getCustomerPurchases } from '@/api/customers';
 import { useEffect, useState } from 'react';
-import { CustomerPurchase, getCustomerPurchases } from '@/api/customers';
 
 interface UseCustomerPurchasesFetchParams {
   customerId: number | null;

@@ -1,7 +1,7 @@
-import { useClickOutsideRef } from '@/hooks/useClickOutsideRef';
-import useKeydownEscape from '@/hooks/useKeydownEscape';
-import { useScrollLock } from '@/hooks/useScrollLock';
-import { compoundRefs } from '@/utils/elements';
+import { useClickOutsideRef } from '@/shared/hooks/useClickOutsideRef';
+import { useScrollLock } from '@/shared/hooks/useScrollLock';
+import useKeydownEscape from '@/shared/hooks/useKeydownEscape';
+import { compoundRefs } from '@/shared/utils/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseModalOptions {

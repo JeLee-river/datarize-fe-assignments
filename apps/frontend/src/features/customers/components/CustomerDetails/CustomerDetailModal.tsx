@@ -1,9 +1,10 @@
 import type { Ref } from 'react';
-import Modal from '@/components/common/Modal/Modal';
-import { Customer } from '@/api/customers';
-import { formatPrice, formatPurchaseDate } from '@/utils/format';
+import Modal from '@/shared/components/Modal/Modal';
+import type { Customer } from '@/api/customers';
+import { formatPrice } from '@/shared/utils/format';
+import { formatPurchaseDate } from '@/features/purchases/utils/format';
 import styles from './CustomerDetailModal.module.css';
-import { useCustomerPurchasesFetch } from '@/hooks/useCustomerPurchasesFetch';
+import { useCustomerPurchasesFetch } from '@/features/customers/hooks/useCustomerPurchasesFetch';
 
 interface CustomerDetailModalProps {
   isOpen: boolean;

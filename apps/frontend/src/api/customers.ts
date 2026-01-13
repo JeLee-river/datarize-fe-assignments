@@ -1,4 +1,4 @@
-import { fetcher } from './fetcher';
+import { fetcher } from '@/api/fetcher';
 
 export interface Pagination {
   page: number;

@@ -1,5 +1,6 @@
-import { PurchaseFrequency } from '@/api/purchases';
-import { calculatePercentage, formatPriceRangeLabel, parsePriceRange } from '@/utils/format';
+import type { PurchaseFrequency } from '@/api/purchases';
+import { calculatePercentage } from '@/shared/utils/format';
+import { formatPriceRangeLabel, parsePriceRange } from '@/features/purchases/utils/format';
 import styles from './PurchaseFrequencyTable.module.css';
 
 interface PurchaseFrequencyTableProps {

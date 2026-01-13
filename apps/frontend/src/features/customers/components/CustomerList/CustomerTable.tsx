@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from 'react';
-import { Customer } from '@/api/customers';
-import { formatPrice } from '@/utils/format';
+import type { Customer } from '@/api/customers';
+import { formatPrice } from '@/shared/utils/format';
 import styles from './CustomerTable.module.css';
 
 interface CustomerTableProps {

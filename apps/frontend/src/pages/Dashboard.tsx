@@ -1,10 +1,10 @@
-import PurchaseFrequencyTable from '@/components/dashboard/PurchaseFrequencyTable';
-import DateFilter from '@/components/dashboard/DateFilter';
-import { useDateRange } from '@/hooks/useDateRange';
+import PurchaseFrequencyTable from '@/features/purchases/components/PurchaseFrequencyTable';
+import DateFilter from '@/features/dashboard/components/DateFilter';
+import { useDateRange } from '@/features/dashboard/hooks/useDateRange';
 import styles from './Dashboard.module.css';
-import { usePurchaseFrequencyFetch } from '@/hooks/usePurchaseFrequencyFetch';
-import CSVDownloadButton from '@/components/dashboard/CSVDownloadButton';
-import CustomerList from '@/components/dashboard/CustomerList/CustomerList';
+import { usePurchaseFrequencyFetch } from '@/features/purchases/hooks/usePurchaseFrequencyFetch';
+import CSVDownloadButton from '@/features/dashboard/components/CSVDownloadButton';
+import CustomerList from '@/features/customers/components/CustomerList/CustomerList';
 
 const Dashboard = () => {
   const { startDate, endDate, changeStartDate, changeEndDate } = useDateRange();

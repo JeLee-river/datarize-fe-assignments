@@ -1,5 +1,6 @@
+import type { PurchaseFrequency } from '@/api/purchases';
+import { getPurchaseFrequency } from '@/api/purchases';
 import { useState, useEffect } from 'react';
-import { getPurchaseFrequency, PurchaseFrequency } from '@/api/purchases';
 
 interface UsePurchaseFrequencyFetchParams {
   startDate: string;
