@@ -89,8 +89,8 @@ const CustomerDetailModal = ({
                       <span className={styles.infoValue}>{formatPrice(purchase.price)}원</span>
                     </div>
                     <div className={styles.infoRow}>
-                      <span className={styles.infoLabel}>수량</span>
-                      <span className={styles.infoValue}>{purchase.quantity}개</span>
+                      <span className={styles.quantityLabel}>수량</span>
+                      <span className={styles.quantityValue}>{purchase.quantity}개</span>
                     </div>
                     <div className={styles.totalRow}>
                       <span className={styles.totalPriceLabel}>총 금액</span>
