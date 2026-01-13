@@ -1,9 +1,12 @@
+import PurchaseFrequencyTable from '@/components/dashboard/PurchaseFrequencyTable';
 import DateFilter from '../components/dashboard/DateFilter';
 import { useDateRange } from '../hooks/useDateRange';
 import styles from './Dashboard.module.css';
+import { usePurchaseFrequencyFetch } from '@/hooks/usePurchaseFrequencyFetch';
 
 const Dashboard = () => {
   const { startDate, endDate, changeStartDate, changeEndDate } = useDateRange();
+  const { data, isLoading, errorMessage } = usePurchaseFrequencyFetch({ startDate, endDate });
 
   return (
     <>
@@ -22,6 +25,7 @@ const Dashboard = () => {
           onStartDateChange={changeStartDate}
           onEndDateChange={changeEndDate}
         />
+        <PurchaseFrequencyTable data={data} isLoading={isLoading} errorMessage={errorMessage} />
       </main>
     </>
   );
