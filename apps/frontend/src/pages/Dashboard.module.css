@@ -1,14 +1,21 @@
 .header {
   width: 100%;
+
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.headerWrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: 16px 24px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-sm);
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
 .brandIcon {
@@ -36,13 +43,8 @@
   margin: 0 auto;
   padding: var(--spacing-lg);
   background-color: var(--color-background);
-  min-height: calc(100vh - 80px);
-}
 
-.filterSection {
-  padding: var(--spacing-lg);
-  background-color: var(--color-surface);
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
