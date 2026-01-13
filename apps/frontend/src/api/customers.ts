@@ -34,7 +34,7 @@ export const getCustomers = (params?: GetCustomersParams) => {
   });
 };
 
-interface CustomerPurchase {
+export interface CustomerPurchase {
   date: string;
   quantity: number;
   product: string;
