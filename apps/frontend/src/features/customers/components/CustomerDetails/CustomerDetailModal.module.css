@@ -1,8 +1,10 @@
 .content {
   min-width: min(760px, 100%);
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  overflow: hidden;
 }
 
 .header {
@@ -49,9 +51,30 @@
 }
 
 .list {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: var(--spacing-xs);
+}
+
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-secondary);
 }
 
 .stateMessage {
