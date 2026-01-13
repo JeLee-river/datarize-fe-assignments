@@ -46,6 +46,7 @@ type GetCustomerPurchaseResponse = CustomerPurchase[];
 interface GetCustomerPurchasesParams {
   from?: string;
   to?: string;
+  [key: string]: string | number | boolean | null | undefined;
 }
 
 export const getCustomerPurchases = (customerId: number, params?: GetCustomerPurchasesParams) => {
