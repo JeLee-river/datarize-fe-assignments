@@ -1,9 +1,5 @@
+import { DEFAULT_DATE_RANGE } from '@/constants/date';
 import styles from './DateFilter.module.css';
-
-const DEFAULT_DATE = {
-  start: '2025-10-01',
-  end: '2025-12-31',
-};
 
 interface DateFilterProps {
   startDate: string;
@@ -30,7 +26,7 @@ const DateFilter = ({
           className={styles.dateFilterInput}
           value={startDate}
           onChange={(e) => onStartDateChange(e.target.value)}
-          min={DEFAULT_DATE.start}
+          min={DEFAULT_DATE_RANGE.start}
           max={endDate}
         />
       </div>
@@ -46,7 +42,7 @@ const DateFilter = ({
           value={endDate}
           onChange={(e) => onEndDateChange(e.target.value)}
           min={startDate}
-          max={DEFAULT_DATE.end}
+          max={DEFAULT_DATE_RANGE.end}
         />
       </div>
     </div>
