@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-interface useScrollLockParams {
+interface UseScrollLockParams {
   scrollLock: boolean;
   isOpen: boolean;
 }
 
-export const useScrollLock = ({ scrollLock, isOpen }: useScrollLockParams) => {
+export const useScrollLock = ({ scrollLock, isOpen }: UseScrollLockParams) => {
   const initialScrollStatus = useRef('');
 
   useEffect(() => {
