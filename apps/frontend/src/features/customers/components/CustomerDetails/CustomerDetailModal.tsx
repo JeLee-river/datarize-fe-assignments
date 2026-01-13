@@ -77,22 +77,26 @@ const CustomerDetailModal = ({
                   className={styles.purchaseImage}
                 />
                 <div className={styles.purchaseInfo}>
-                  <div className={styles.purchaseHeader}>
-                    <div className={styles.purchaseTitleWrapper}>
-                      <h3 className={styles.productName}>{purchase.product}</h3>
-                      <p className={styles.purchaseDate}>
-                        구매 일: {formatPurchaseDate(purchase.date)}
-                      </p>
+                  <div className={styles.purchaseTop}>
+                    <h3 className={styles.productName}>{purchase.product}</h3>
+                    <p className={styles.purchaseDate}>{formatPurchaseDate(purchase.date)}</p>
+                  </div>
+                  <div className={styles.purchaseBottom}>
+                    <div className={styles.infoRow}>
+                      <span className={styles.infoLabel}>단가</span>
+                      <span className={styles.infoValue}>{formatPrice(purchase.price)}원</span>
                     </div>
-                    <div className={styles.purchaseMeta}>
-                      <span className={styles.price}>{formatPrice(purchase.price)}원</span>
-                      <span className={styles.quantity}>수량: {purchase.quantity}개</span>
+                    <div className={styles.infoRow}>
+                      <span className={styles.infoLabel}>수량</span>
+                      <span className={styles.infoValue}>{purchase.quantity}개</span>
+                    </div>
+                    <div className={styles.totalRow}>
+                      <span className={styles.totalLabel}>총 금액</span>
+                      <span className={styles.totalValue}>
+                        {formatPrice(purchase.price * purchase.quantity)}원
+                      </span>
                     </div>
                   </div>
-                  <div className={styles.divider} />
-                  <p className={styles.subtotal}>
-                    총 금액: {formatPrice(purchase.price * purchase.quantity)}원
-                  </p>
                 </div>
               </div>
             ))
