@@ -25,3 +25,10 @@ export const formatPriceRangeLabel = (min: number | null, max: number | null) =>
 
   return [minLabel, maxLabel].join(' ').trim();
 };
+
+export const formatPurchaseDate = (value: string) => {
+  const [year, month, day] = value.split('-');
+  if (!year || !month || !day) return value;
+
+  return `${year}. ${Number(month)}. ${Number(day)}.`;
+};
