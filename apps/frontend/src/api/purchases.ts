@@ -30,7 +30,7 @@ interface GetPurchasesParams {
   to?: string;
   [key: string]: string | number | boolean | null | undefined;
 }
-type PurchaseResponse = Purchase[];
+export type PurchaseResponse = Purchase[];
 
 export const getPurchases = (params?: GetPurchasesParams) => {
   return fetcher.get<PurchaseResponse>({
