@@ -36,14 +36,10 @@
   transition: background-color 0.15s ease;
 }
 
-.row:hover {
+.row.rowClickable:hover {
   background-color: var(--color-hover);
 }
 
-.table thead .row:hover {
-  background-color: transparent;
-}
-
-.rowClickable {
+.row.rowClickable {
   cursor: pointer;
 }

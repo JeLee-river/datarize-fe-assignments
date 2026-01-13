@@ -53,8 +53,7 @@ const CustomerTable = ({ data, isLoading, errorMessage, onRowClick }: CustomerTa
             data.map((customer) => (
               <Table.Row
                 key={customer.id}
-                isClickable
-                onClick={() => onRowClick?.(customer)}
+                onRowClick={() => onRowClick?.(customer)}
                 onKeyDown={(event) => handleRowKeyDown(customer, event)}
                 tabIndex={0}
                 role="button"
