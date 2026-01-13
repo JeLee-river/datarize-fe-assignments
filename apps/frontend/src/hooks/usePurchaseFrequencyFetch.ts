@@ -20,7 +20,7 @@ export const usePurchaseFrequencyFetch = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchPurchaseFrequencyData = async () => {
       setIsLoading(true);
       setErrorMessage(null);
       try {
@@ -39,7 +39,7 @@ export const usePurchaseFrequencyFetch = ({
       }
     };
 
-    fetchData();
+    fetchPurchaseFrequencyData();
   }, [startDate, endDate]);
 
   return { data, isLoading, errorMessage };
