@@ -1,10 +1,13 @@
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
+import type { Customer } from '@/api/customers';
 import { useCustomersFetch } from '@/hooks/useCustomersFetch';
 import { usePagination } from '@/hooks/usePagination';
 import Pagination from '@/components/common/Pagination';
 import CustomerControls, { SortOption } from './CustomerControls';
 import CustomerTable from './CustomerTable';
 import styles from './CustomerList.module.css';
+import useModal from '@/components/common/Modal/useModal';
+import CustomerDetailModal from '../CustomerDetails/CustomerDetailModal';
 
 interface CustomerListProps {
   startDate: string;
@@ -17,7 +20,12 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
   const [searchInput, setSearchInput] = useState('');
   const [name, setName] = useState('');
   const [sortOption, setSortOption] = useState<SortOption>('default');
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
+
   const { page, changePage, resetPage } = usePagination();
+  const { modalRef, openModal, closeModal, isOpen } = useModal({
+    onClose: () => setSelectedCustomer(null),
+  });
 
   useEffect(() => {
     resetPage();
@@ -47,6 +55,11 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
     setSortOption(nextValue);
   };
 
+  const handleRowClick = (customer: Customer) => {
+    setSelectedCustomer(customer);
+    openModal();
+  };
+
   const total = pagination.total;
   const rangeStart = total === 0 ? 0 : (pagination.page - 1) * pagination.limit + 1;
   const rangeEnd = total === 0 ? 0 : Math.min(pagination.page * pagination.limit, total);
@@ -64,7 +77,12 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
         />
       </div>
 
-      <CustomerTable data={data} isLoading={isLoading} errorMessage={errorMessage} />
+      <CustomerTable
+        data={data}
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+        onRowClick={handleRowClick}
+      />
 
       <Pagination
         currentPage={page}
@@ -73,6 +91,15 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
         totalItems={total}
         rangeStart={rangeStart}
         rangeEnd={rangeEnd}
+      />
+
+      <CustomerDetailModal
+        isOpen={isOpen}
+        modalRef={modalRef}
+        onClose={closeModal}
+        customer={selectedCustomer}
+        startDate={startDate}
+        endDate={endDate}
       />
     </section>
   );

@@ -42,6 +42,10 @@
   transition: background-color 0.15s ease;
 }
 
+.tableRowClickable {
+  cursor: pointer;
+}
+
 .tableRow:hover {
   background-color: var(--color-hover);
 }

@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from 'react';
 import { Customer } from '@/api/customers';
 import { formatPrice } from '@/utils/format';
 import styles from './CustomerTable.module.css';
@@ -6,9 +7,17 @@ interface CustomerTableProps {
   data: Customer[];
   isLoading: boolean;
   errorMessage: string | null;
+  onRowClick: (customer: Customer) => void;
 }
 
-const CustomerTable = ({ data, isLoading, errorMessage }: CustomerTableProps) => {
+const CustomerTable = ({ data, isLoading, errorMessage, onRowClick }: CustomerTableProps) => {
+  const handleRowKeyDown = (customer: Customer, event: KeyboardEvent) => {
+    if (!onRowClick || event.key !== 'Enter') return;
+    event.preventDefault();
+
+    onRowClick(customer);
+  };
+
   return (
     <div className={styles.tableWrapper}>
       <table className={styles.table}>
@@ -41,7 +50,14 @@ const CustomerTable = ({ data, isLoading, errorMessage }: CustomerTableProps) =>
             </tr>
           ) : (
             data.map((customer) => (
-              <tr key={customer.id} className={styles.tableRow}>
+              <tr
+                key={customer.id}
+                className={`${styles.tableRow} ${styles.tableRowClickable}`}
+                onClick={() => onRowClick?.(customer)}
+                onKeyDown={(event) => handleRowKeyDown(customer, event)}
+                tabIndex={0}
+                role="button"
+              >
                 <td className={styles.tableCell}>{customer.id}</td>
                 <td className={styles.tableCell}>{customer.name}</td>
                 <td className={styles.tableCellCenter}>{customer.count}</td>
