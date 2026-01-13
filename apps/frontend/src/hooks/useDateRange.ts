@@ -1,4 +1,4 @@
-import { DEFAULT_DATE_RANGE } from '@/constants/date';
+import { DEFAULT_DATE_RANGE } from '../constants/date';
 import { useState } from 'react';
 
 export const useDateRange = () => {
@@ -9,7 +9,7 @@ export const useDateRange = () => {
     setStartDate(date);
   };
 
-  const changeEndStartDate = (date: string) => {
+  const changeEndDate = (date: string) => {
     setEndDate(date);
   };
 
@@ -17,6 +17,6 @@ export const useDateRange = () => {
     startDate,
     endDate,
     changeStartDate,
-    changeEndStartDate,
+    changeEndDate,
   };
 };

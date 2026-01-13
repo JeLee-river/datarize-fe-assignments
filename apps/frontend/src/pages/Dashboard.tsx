@@ -3,7 +3,7 @@ import { useDateRange } from '../hooks/useDateRange';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
-  const { startDate, endDate, changeStartDate, changeEndStartDate } = useDateRange();
+  const { startDate, endDate, changeStartDate, changeEndDate } = useDateRange();
 
   return (
     <>
@@ -19,7 +19,7 @@ const Dashboard = () => {
             startDate={startDate}
             endDate={endDate}
             onStartDateChange={changeStartDate}
-            onEndDateChange={changeEndStartDate}
+            onEndDateChange={changeEndDate}
           />
         </section>
       </main>
