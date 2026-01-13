@@ -1,7 +1,8 @@
-import { ChangeEvent, KeyboardEvent, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 import { useCustomersFetch } from '@/hooks/useCustomersFetch';
 import { usePagination } from '@/hooks/usePagination';
 import { formatPrice } from '@/utils/format';
+import Pagination from '@/components/common/Pagination';
 import styles from './CustomerList.module.css';
 
 interface CustomerListProps {
@@ -45,11 +46,6 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
     setSortOption(nextValue);
   };
 
-  const totalPages = Math.max(pagination.totalPages, 1);
-  const pageNumbers = useMemo(
-    () => Array.from({ length: totalPages }, (_, index) => index + 1),
-    [totalPages]
-  );
   const total = pagination.total;
   const rangeStart = total === 0 ? 0 : (pagination.page - 1) * pagination.limit + 1;
   const rangeEnd = total === 0 ? 0 : Math.min(pagination.page * pagination.limit, total);
@@ -126,37 +122,12 @@ const CustomerList = ({ startDate, endDate }: CustomerListProps) => {
       </div>
 
       <div className={styles.paginationWrapper}>
-        <div className={styles.pagination}>
-          <button
-            type="button"
-            className={styles.pageButton}
-            onClick={() => changePage(page - 1)}
-            disabled={page <= 1}
-          >
-            ‹ 이전
-          </button>
-          <div className={styles.pageNumbers}>
-            {pageNumbers.map((pageNumber) => (
-              <button
-                key={pageNumber}
-                type="button"
-                className={pageNumber === page ? styles.pageNumberActive : styles.pageNumber}
-                onClick={() => changePage(pageNumber)}
-              >
-                {pageNumber}
-              </button>
-            ))}
-          </div>
-          <button
-            type="button"
-            className={styles.pageButton}
-            onClick={() => changePage(page + 1)}
-            disabled={page >= totalPages || totalPages === 0}
-          >
-            다음 ›
-          </button>
-        </div>
-        <p className={styles.paginationSummary}>
+        <Pagination
+          currentPage={page}
+          totalPages={Math.max(pagination.totalPages, 1)}
+          onPageChange={changePage}
+        />
+        <p className={styles.summary}>
           전체 {total}명 중 {rangeStart} - {rangeEnd}명
         </p>
       </div>
