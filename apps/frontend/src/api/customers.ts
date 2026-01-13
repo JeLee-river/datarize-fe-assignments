@@ -1,13 +1,13 @@
 import { fetcher } from './fetcher';
 
-interface Pagination {
+export interface Pagination {
   page: number;
   limit: number;
   total: number;
   totalPages: number;
 }
 
-interface Customer {
+export interface Customer {
   id: number;
   name: string;
   count: number;
@@ -18,6 +18,8 @@ interface GetCustomersParams {
   name?: string;
   page?: number;
   limit?: number;
+  from?: string;
+  to?: string;
   [key: string]: string | number | boolean | null | undefined;
 }
 interface GetCustomersResponse {
@@ -41,8 +43,14 @@ interface CustomerPurchase {
 }
 type GetCustomerPurchaseResponse = CustomerPurchase[];
 
-export const getCustomerPurchases = (customerId: number) => {
+interface GetCustomerPurchasesParams {
+  from?: string;
+  to?: string;
+}
+
+export const getCustomerPurchases = (customerId: number, params?: GetCustomerPurchasesParams) => {
   return fetcher.get<GetCustomerPurchaseResponse>({
     path: `/customers/${customerId}/purchases`,
+    query: params,
   });
 };
