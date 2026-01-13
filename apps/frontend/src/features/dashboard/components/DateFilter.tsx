@@ -25,7 +25,7 @@ const DateFilter = ({
           id="start-date"
           className={styles.dateFilterInput}
           value={startDate}
-          onChange={(e) => onStartDateChange(e.target.value)}
+          onChange={(event) => onStartDateChange(event.target.value)}
           min={DEFAULT_DATE_RANGE.start}
           max={endDate}
         />
@@ -40,7 +40,7 @@ const DateFilter = ({
           id="end-date"
           className={styles.dateFilterInput}
           value={endDate}
-          onChange={(e) => onEndDateChange(e.target.value)}
+          onChange={(event) => onEndDateChange(event.target.value)}
           min={startDate}
           max={DEFAULT_DATE_RANGE.end}
         />
