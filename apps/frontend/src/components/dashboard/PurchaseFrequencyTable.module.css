@@ -10,34 +10,9 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: var(--font-size-subtitle);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  margin: 0;
-}
-
-.exportButton {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: 8px 16px;
-  font-size: var(--font-size-subtitle);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.exportButton:hover {
-  background-color: var(--color-hover);
-  border-color: var(--color-text-secondary);
-}
-
-.downloadIcon {
-  font-size: 16px;
 }
 
 .tableWrapper {

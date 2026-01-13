@@ -33,7 +33,8 @@ const PurchaseFrequencyTable = ({ data, isLoading, errorMessage }: PurchaseFrequ
           <thead>
             <tr>
               <th className={styles.tableHeader}>가격대</th>
-              <th className={styles.tableHeader}>구매 빈도</th>
+              <th className={styles.tableHeader}>구매 빈도 (건)</th>
+              <th className={styles.tableHeader}>비율 (%)</th>
             </tr>
           </thead>
           <tbody>
@@ -45,14 +46,13 @@ const PurchaseFrequencyTable = ({ data, isLoading, errorMessage }: PurchaseFrequ
               return (
                 <tr key={index} className={styles.tableRow}>
                   <td className={styles.tableCell}>{priceRangeText}</td>
-                  <td className={styles.tableCellRight}>
+                  <td className={styles.tableCell}>
                     <div className={styles.frequencyCell}>
                       <div className={styles.bar} />
-                      <span className={styles.countText}>
-                        {item.count}건 ({percentage})
-                      </span>
+                      <span className={styles.countText}>{item.count}</span>
                     </div>
                   </td>
+                  <td className={styles.tableCellRight}>{percentage}</td>
                 </tr>
               );
             })}
