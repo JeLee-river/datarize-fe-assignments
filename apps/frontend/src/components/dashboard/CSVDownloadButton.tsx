@@ -1,5 +1,5 @@
 import { usePurchasesFetch } from '@/hooks/usePurchasesFetch';
-import { downloadCSV } from '../../utils/csv';
+import { downloadCSV } from '@/utils/csv';
 import styles from './CSVDownloadButton.module.css';
 
 interface CSVDownloadButtonProps {

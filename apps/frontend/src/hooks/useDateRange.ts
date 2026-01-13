@@ -1,5 +1,5 @@
-import { DEFAULT_DATE_RANGE } from '../constants/date';
 import { useState } from 'react';
+import { DEFAULT_DATE_RANGE } from '@/constants/date';
 
 export const useDateRange = () => {
   const [startDate, setStartDate] = useState(DEFAULT_DATE_RANGE.start);

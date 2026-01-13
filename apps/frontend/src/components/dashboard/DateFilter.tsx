@@ -1,4 +1,4 @@
-import { DEFAULT_DATE_RANGE } from '../../constants/date';
+import { DEFAULT_DATE_RANGE } from '@/constants/date';
 import styles from './DateFilter.module.css';
 
 interface DateFilterProps {

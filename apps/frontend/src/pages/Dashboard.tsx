@@ -1,6 +1,6 @@
 import PurchaseFrequencyTable from '@/components/dashboard/PurchaseFrequencyTable';
-import DateFilter from '../components/dashboard/DateFilter';
-import { useDateRange } from '../hooks/useDateRange';
+import DateFilter from '@/components/dashboard/DateFilter';
+import { useDateRange } from '@/hooks/useDateRange';
 import styles from './Dashboard.module.css';
 import { usePurchaseFrequencyFetch } from '@/hooks/usePurchaseFrequencyFetch';
 import CSVDownloadButton from '@/components/dashboard/CSVDownloadButton';
