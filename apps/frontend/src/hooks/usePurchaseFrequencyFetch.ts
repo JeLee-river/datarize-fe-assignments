@@ -24,7 +24,6 @@ export const usePurchaseFrequencyFetch = ({
           to: endDate,
         });
         setData(result);
-        console.log(result);
       } catch (error) {
         setErrorMessage(
           error instanceof Error ? error.message : '구매 빈도 데이터를 불러오는데 실패했습니다.'
