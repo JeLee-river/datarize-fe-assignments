@@ -1,0 +1,83 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ul,
+ol,
+li,
+table,
+tr,
+th,
+td,
+form,
+label,
+fieldset,
+legend,
+input,
+textarea,
+button,
+article,
+aside,
+footer,
+header,
+nav,
+section,
+main,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Apple SD Gothic Neo',
+    Roboto,
+    'Noto Sans KR',
+    'Segoe UI',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  line-height: 1;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+
+  :disabled {
+    cursor: not-allowed;
+  }
+}
