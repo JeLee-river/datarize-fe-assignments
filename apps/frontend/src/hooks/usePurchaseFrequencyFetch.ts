@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPurchaseFrequency } from '../api/purchases';
-
-interface PurchaseFrequency {
-  range: string;
-  count: number;
-}
+import { getPurchaseFrequency, PurchaseFrequency } from '@/api/purchases';
 
 interface UsePurchaseFrequencyFetchParams {
   startDate: string;

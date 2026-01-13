@@ -1,6 +1,6 @@
 import { fetcher } from './fetcher';
 
-interface PurchaseFrequency {
+export interface PurchaseFrequency {
   range: string;
   count: number;
 }

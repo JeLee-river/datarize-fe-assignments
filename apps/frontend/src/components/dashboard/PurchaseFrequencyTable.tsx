@@ -1,10 +1,6 @@
+import { PurchaseFrequency } from '@/api/purchases';
 import { calculatePercentage, formatPriceRangeLabel, parsePriceRange } from '@/utils/format';
 import styles from './PurchaseFrequencyTable.module.css';
-
-interface PurchaseFrequency {
-  range: string;
-  count: number;
-}
 
 interface PurchaseFrequencyTableProps {
   data: PurchaseFrequency[];
