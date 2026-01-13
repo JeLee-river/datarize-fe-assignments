@@ -1,25 +1,24 @@
 .header {
   width: 100%;
-  padding: 12px;
+  padding: 16px 24px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-sm);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
 .brandIcon {
   margin-right: var(--spacing-sm);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: var(--font-size-title);
 }
 
 .title {
   display: flex;
   align-items: center;
-
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
@@ -29,17 +28,22 @@
   font-size: var(--font-size-subtitle);
   font-weight: var(--font-weight-regular);
   color: var(--color-text-secondary);
+  padding-left: 32px;
 }
 
 .dashboard {
   width: 100%;
-  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
   background-color: var(--color-background);
+  min-height: calc(100vh - 80px);
 }
 
 .filterSection {
   padding: var(--spacing-lg);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
   border-radius: var(--border-radius-sm);
-  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
 }

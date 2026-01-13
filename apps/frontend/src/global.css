@@ -1,12 +1,13 @@
 :root {
   --color-primary: #1c4d8d;
-  --color-background: #ffffff;
-  --color-border: #e5e5e5;
-  --color-border-dark: #dddddd;
-  --color-text-primary: #000000;
-  --color-text-secondary: #666666;
-  --color-input-background: #f5f5f5;
-  --color-hover: #f9f9f9;
+  --color-background: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-dark: #d1d5db;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-input-background: #f3f4f6;
+  --color-hover: #f9fafb;
 
   --font-size-title: 24px;
   --font-size-subtitle: 16px;
