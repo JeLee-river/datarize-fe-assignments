@@ -76,3 +76,10 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }
+
+.filterControls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}

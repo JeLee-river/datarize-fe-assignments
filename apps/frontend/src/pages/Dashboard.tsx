@@ -26,15 +26,16 @@ const Dashboard = () => {
             <h2 className={styles.sectionTitle}>데이터 조회 기간</h2>
             <p className={styles.sectionDescription}>선택한 기간의 데이터가 표시됩니다.</p>
           </div>
-          <DateFilter
-            startDate={startDate}
-            endDate={endDate}
-            onStartDateChange={changeStartDate}
-            onEndDateChange={changeEndDate}
-          />
+          <div className={styles.filterControls}>
+            <DateFilter
+              startDate={startDate}
+              endDate={endDate}
+              onStartDateChange={changeStartDate}
+              onEndDateChange={changeEndDate}
+            />
+            <CSVDownloadButton startDate={startDate} endDate={endDate} />
+          </div>
         </section>
-
-        <CSVDownloadButton startDate={startDate} endDate={endDate} />
 
         <PurchaseFrequencyTable data={data} isLoading={isLoading} errorMessage={errorMessage} />
 

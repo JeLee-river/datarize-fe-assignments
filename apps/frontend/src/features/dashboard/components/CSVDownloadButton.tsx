@@ -22,8 +22,8 @@ const CSVDownloadButton = ({ startDate, endDate }: CSVDownloadButtonProps) => {
 
   return (
     <button className={styles.button} onClick={handleDownloadClick} disabled={isLoading}>
-      <span className={styles.icon}>⬇</span>
-      {isLoading ? '다운로드 중...' : '구매 데이터 내려받기 (*.csv)'}
+      <img src="/download.svg" alt="" className={styles.icon} />
+      {isLoading ? '다운로드 중...' : '선택한 기간 CSV 다운로드'}
     </button>
   );
 };
