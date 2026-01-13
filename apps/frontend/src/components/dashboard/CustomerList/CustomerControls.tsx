@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent } from 'react';
 import styles from './CustomerControls.module.css';
 
 export type SortOption = 'default' | 'asc' | 'desc';

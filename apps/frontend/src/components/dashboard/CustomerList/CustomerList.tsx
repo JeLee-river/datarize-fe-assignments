@@ -1,4 +1,5 @@
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { ChangeEvent, KeyboardEvent } from 'react';
 import type { Customer } from '@/api/customers';
 import { useCustomersFetch } from '@/hooks/useCustomersFetch';
 import { usePagination } from '@/hooks/usePagination';
