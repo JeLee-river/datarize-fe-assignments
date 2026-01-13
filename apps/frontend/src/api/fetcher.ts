@@ -1,10 +1,15 @@
 type QueryParams = Record<string, string | number | boolean | null | undefined>;
 
+interface FetcherOptions {
+  path: string;
+  query?: QueryParams;
+}
+
 const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
 
 export const fetcher = {
-  get: <T>(path: string, params?: Record<string, string | number>): Promise<T> => {
-    return request(convertUrl(path, params));
+  get: <T>({ path, query }: FetcherOptions): Promise<T> => {
+    return request(convertUrl(path, query));
   },
 };
 
