@@ -48,3 +48,31 @@
   flex-direction: column;
   gap: var(--spacing-lg);
 }
+
+.filterSection {
+  padding: 24px;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.sectionDescription {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+}
