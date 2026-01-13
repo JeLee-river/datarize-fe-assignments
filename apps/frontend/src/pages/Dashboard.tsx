@@ -4,7 +4,7 @@ import { useDateRange } from '../hooks/useDateRange';
 import styles from './Dashboard.module.css';
 import { usePurchaseFrequencyFetch } from '@/hooks/usePurchaseFrequencyFetch';
 import CSVDownloadButton from '@/components/dashboard/CSVDownloadButton';
-import CustomerList from '@/components/dashboard/CustomerList';
+import CustomerList from '@/components/dashboard/CustomerList/CustomerList';
 
 const Dashboard = () => {
   const { startDate, endDate, changeStartDate, changeEndDate } = useDateRange();
