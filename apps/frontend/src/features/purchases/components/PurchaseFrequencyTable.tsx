@@ -1,17 +1,17 @@
-import type { PurchaseFrequency } from '@/api/purchases';
 import { calculatePercentage } from '@/shared/utils/format';
 import { formatPriceRangeLabel, parsePriceRange } from '@/features/purchases/utils/format';
+import { usePurchaseFrequencyFetch } from '@/features/purchases/hooks/usePurchaseFrequencyFetch';
 import Table from '@/shared/components/Table/Table';
 import TableSkeleton from '@/shared/components/Skeleton/TableSkeleton';
 import styles from './PurchaseFrequencyTable.module.css';
 
 interface PurchaseFrequencyTableProps {
-  data: PurchaseFrequency[];
-  isLoading: boolean;
-  errorMessage: string | null;
+  startDate: string;
+  endDate: string;
 }
 
-const PurchaseFrequencyTable = ({ data, isLoading, errorMessage }: PurchaseFrequencyTableProps) => {
+const PurchaseFrequencyTable = ({ startDate, endDate }: PurchaseFrequencyTableProps) => {
+  const { data, isLoading, errorMessage } = usePurchaseFrequencyFetch({ startDate, endDate });
   const totalCount = data.reduce((sum, item) => sum + item.count, 0);
 
   if (errorMessage) {

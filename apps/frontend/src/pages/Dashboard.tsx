@@ -2,13 +2,11 @@ import PurchaseFrequencyTable from '@/features/purchases/components/PurchaseFreq
 import DateFilter from '@/features/dashboard/components/DateFilter';
 import { useDateRange } from '@/features/dashboard/hooks/useDateRange';
 import styles from './Dashboard.module.css';
-import { usePurchaseFrequencyFetch } from '@/features/purchases/hooks/usePurchaseFrequencyFetch';
 import CSVDownloadButton from '@/features/dashboard/components/CSVDownloadButton';
 import CustomerList from '@/features/customers/components/CustomerList/CustomerList';
 
 const Dashboard = () => {
   const { startDate, endDate, changeStartDate, changeEndDate } = useDateRange();
-  const { data, isLoading, errorMessage } = usePurchaseFrequencyFetch({ startDate, endDate });
 
   return (
     <>
@@ -37,7 +35,7 @@ const Dashboard = () => {
           </div>
         </section>
 
-        <PurchaseFrequencyTable data={data} isLoading={isLoading} errorMessage={errorMessage} />
+        <PurchaseFrequencyTable startDate={startDate} endDate={endDate} />
 
         <CustomerList startDate={startDate} endDate={endDate} />
       </main>
