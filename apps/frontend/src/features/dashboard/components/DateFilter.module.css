@@ -1,18 +1,19 @@
 .dateFilter {
   display: flex;
-  gap: var(--spacing-lg);
-  align-items: flex-end;
+  gap: var(--spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .dateFilterField {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: var(--spacing-sm);
-  flex: 1;
 }
 
 .dateFilterLabel {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   display: flex;
@@ -21,10 +22,11 @@
 
 .dateFilterInput {
   padding: 8px 12px;
+  min-width: 180px;
   font-size: var(--font-size-sm);
   border: 1px solid var(--color-border-dark);
   border-radius: 8px;
-  background-color: var(--color-input-background);
+  background-color: var(--color-surface);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -39,4 +41,9 @@
   border-color: var(--color-primary);
   background-color: var(--color-surface);
   box-shadow: 0 0 0 3px rgba(74, 125, 255, 0.1);
+}
+
+.dateDivider {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
 }

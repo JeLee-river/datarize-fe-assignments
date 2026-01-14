@@ -31,6 +31,10 @@ const DateFilter = ({
         />
       </div>
 
+      <span className={styles.dateDivider} aria-hidden="true">
+        ~
+      </span>
+
       <div className={styles.dateFilterField}>
         <label htmlFor="end-date" className={styles.dateFilterLabel}>
           종료일

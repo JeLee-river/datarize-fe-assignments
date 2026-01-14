@@ -7,6 +7,8 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-primary);
 
+  white-space: nowrap;
+
   transition: all 0.2s ease;
   cursor: pointer;
 }

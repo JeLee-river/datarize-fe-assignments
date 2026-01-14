@@ -4,17 +4,27 @@
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .headerWrapper {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 16px 24px 12px;
 
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.headerInfo {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: var(--spacing-sm);
 }
 
@@ -32,10 +42,15 @@
   color: var(--color-text-primary);
 }
 
-.subtitle {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-secondary);
+.headerAction {
+  display: flex;
+  align-items: center;
+}
+
+.headerContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .dashboard {
@@ -51,36 +66,18 @@
 }
 
 .filterSection {
-  padding: 24px;
-  background-color: var(--color-surface);
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
 
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.sectionHeader {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.sectionTitle {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-}
-
-.sectionDescription {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-.filterControls {
-  display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
+}
+
+.filterLabel {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
 }

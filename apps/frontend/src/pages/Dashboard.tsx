@@ -12,30 +12,27 @@ const Dashboard = () => {
     <>
       <header className={styles.header}>
         <div className={styles.headerWrapper}>
-          <h1 className={styles.title}>
-            <img src="/cart.svg" alt="" className={styles.brandIcon} />
-            쇼핑몰 구매 데이터 대시보드
-          </h1>
-          <p className={styles.subtitle}>2025년 10월~12월 구매 데이터 분석</p>
+          <div className={styles.headerInfo}>
+            <h1 className={styles.title}>
+              <img src="/cart.svg" alt="" className={styles.brandIcon} />
+              쇼핑몰 구매 데이터 대시보드
+            </h1>
+          </div>
+          <div className={styles.headerContent}>
+            <div className={styles.filterSection}>
+              <span className={styles.filterLabel}>기간 선택</span>
+              <DateFilter
+                startDate={startDate}
+                endDate={endDate}
+                onStartDateChange={changeStartDate}
+                onEndDateChange={changeEndDate}
+              />
+            </div>
+            <CSVDownloadButton startDate={startDate} endDate={endDate} />
+          </div>
         </div>
       </header>
       <main className={styles.dashboard}>
-        <section className={styles.filterSection}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>데이터 조회 기간</h2>
-            <p className={styles.sectionDescription}>선택한 기간의 데이터가 표시됩니다.</p>
-          </div>
-          <div className={styles.filterControls}>
-            <DateFilter
-              startDate={startDate}
-              endDate={endDate}
-              onStartDateChange={changeStartDate}
-              onEndDateChange={changeEndDate}
-            />
-            <CSVDownloadButton startDate={startDate} endDate={endDate} />
-          </div>
-        </section>
-
         <PurchaseFrequencyTable startDate={startDate} endDate={endDate} />
 
         <CustomerList startDate={startDate} endDate={endDate} />
