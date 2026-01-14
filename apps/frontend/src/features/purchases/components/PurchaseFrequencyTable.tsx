@@ -2,6 +2,7 @@ import type { PurchaseFrequency } from '@/api/purchases';
 import { calculatePercentage } from '@/shared/utils/format';
 import { formatPriceRangeLabel, parsePriceRange } from '@/features/purchases/utils/format';
 import Table from '@/shared/components/Table/Table';
+import TableSkeleton from '@/shared/components/Skeleton/TableSkeleton';
 import styles from './PurchaseFrequencyTable.module.css';
 
 interface PurchaseFrequencyTableProps {
@@ -13,11 +14,20 @@ interface PurchaseFrequencyTableProps {
 const PurchaseFrequencyTable = ({ data, isLoading, errorMessage }: PurchaseFrequencyTableProps) => {
   const totalCount = data.reduce((sum, item) => sum + item.count, 0);
 
-  if (isLoading || errorMessage) {
+  if (errorMessage) {
     return (
       <div className={styles.container}>
         <h2 className={styles.title}>가격대별 구매 빈도</h2>
-        <div className={styles.loading}>{isLoading ? '데이터를 불러오는 중...' : errorMessage}</div>
+        <div className={styles.loading}>{errorMessage}</div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <h2 className={styles.title}>가격대별 구매 빈도</h2>
+        <TableSkeleton rows={6} columns={3} />
       </div>
     );
   }

@@ -2,6 +2,7 @@ import type { KeyboardEvent } from 'react';
 import type { Customer } from '@/api/customers';
 import { formatPrice } from '@/shared/utils/format';
 import Table from '@/shared/components/Table/Table';
+import TableSkeleton from '@/shared/components/Skeleton/TableSkeleton';
 import styles from './CustomerTable.module.css';
 
 interface CustomerTableProps {
@@ -19,6 +20,10 @@ const CustomerTable = ({ data, isLoading, errorMessage, onRowClick }: CustomerTa
     onRowClick(customer);
   };
 
+  if (isLoading) {
+    return <TableSkeleton rows={10} columns={4} />;
+  }
+
   return (
     <Table.Container className={styles.tableWrapper}>
       <Table>
@@ -31,13 +36,7 @@ const CustomerTable = ({ data, isLoading, errorMessage, onRowClick }: CustomerTa
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {isLoading ? (
-            <Table.Row>
-              <td className={styles.stateCell} colSpan={4}>
-                데이터를 불러오는 중...
-              </td>
-            </Table.Row>
-          ) : errorMessage ? (
+          {errorMessage ? (
             <Table.Row>
               <td className={`${styles.stateCell} ${styles.stateCellError}`} colSpan={4}>
                 {errorMessage}
