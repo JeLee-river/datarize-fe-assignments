@@ -5,6 +5,8 @@ import { formatPrice } from '@/shared/utils/format';
 import { formatPurchaseDate } from '@/features/purchases/utils/format';
 import styles from './CustomerDetailModal.module.css';
 import { useCustomerPurchasesFetch } from '@/features/customers/hooks/useCustomerPurchasesFetch';
+import PurchaseCardSkeleton from './PurchaseCardSkeleton';
+import Skeleton from '@/shared/components/Skeleton/Skeleton';
 
 interface CustomerDetailModalProps {
   isOpen: boolean;
@@ -36,9 +38,6 @@ const CustomerDetailModal = ({
   const totalCount = purchaseDates.size;
   const totalAmount = data.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const totalCountLabel = isLoading ? '-' : `${totalCount}회`;
-  const totalAmountLabel = isLoading ? '-' : `${formatPrice(totalAmount)}원`;
-
   return (
     <Modal modalRef={modalRef} closeModal={onClose} isOpen={isOpen}>
       <div className={styles.content}>
@@ -52,17 +51,29 @@ const CustomerDetailModal = ({
         <div className={styles.summaryCard}>
           <div className={styles.summaryItem}>
             <span className={styles.summaryLabel}>총 구매 횟수</span>
-            <strong className={styles.summaryValue}>{totalCountLabel}</strong>
+            <strong className={styles.summaryValue}>
+              {isLoading ? <Skeleton width="60px" height="28px" /> : `${totalCount}회`}
+            </strong>
           </div>
           <div className={styles.summaryItem}>
             <span className={styles.summaryLabel}>총 구매 금액</span>
-            <strong className={styles.summaryValue}>{totalAmountLabel}</strong>
+            <strong className={styles.summaryValue}>
+              {isLoading ? (
+                <Skeleton width="120px" height="28px" />
+              ) : (
+                `${formatPrice(totalAmount)}원`
+              )}
+            </strong>
           </div>
         </div>
 
         <div className={styles.list}>
           {isLoading ? (
-            <p className={styles.stateMessage}>구매 내역을 불러오는 중...</p>
+            <>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <PurchaseCardSkeleton key={index} />
+              ))}
+            </>
           ) : errorMessage ? (
             <p className={`${styles.stateMessage} ${styles.stateMessageError}`}>{errorMessage}</p>
           ) : data.length === 0 ? (
