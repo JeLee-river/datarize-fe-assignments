@@ -13,7 +13,8 @@ const Dashboard = () => {
       <header className={styles.header}>
         <div className={styles.headerWrapper}>
           <h1 className={styles.title}>
-            <span className={styles.brandIcon}>🛒</span>쇼핑몰 구매 데이터 대시보드
+            <img src="/cart.svg" alt="" className={styles.brandIcon} />
+            쇼핑몰 구매 데이터 대시보드
           </h1>
           <p className={styles.subtitle}>2025년 10월~12월 구매 데이터 분석</p>
         </div>

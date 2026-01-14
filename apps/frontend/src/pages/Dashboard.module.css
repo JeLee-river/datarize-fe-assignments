@@ -20,7 +20,8 @@
 
 .brandIcon {
   margin-right: var(--spacing-sm);
-  font-size: var(--font-size-xl);
+  width: 32px;
+  height: 32px;
 }
 
 .title {
